@@ -17,6 +17,7 @@ Window::Window(int width, int height, char *title)
 	}
 
 	m_window = glfwCreateWindow(width, height, title, NULL, NULL);
+
 	if (!m_window)
 	{
 		glfwTerminate();
@@ -27,6 +28,13 @@ Window::Window(int width, int height, char *title)
 	glfwMakeContextCurrent(m_window);
 	glfwSetWindowSizeCallback(m_window, windowResize);
 
+	if (glewInit() != GLEW_OK)
+	{
+		printf("Failed to initialize GLEW!");
+		return;
+	}
+
+	std::cout << glGetString(GL_VERSION) << std::endl;
 }
 
 
