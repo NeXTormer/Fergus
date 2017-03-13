@@ -1,11 +1,19 @@
 #include <iostream>
+#include <string>
 
 #include "graphics\window.h"
 #include "maths\maths.h"
+#include "utils\fileutils.h"
 
 int main(void)
 {
-	
+
+	std::string file = read_file("rendl.vert");
+
+	std::cout << file << std::endl;
+
+	system("pause");
+
 	Window window(800, 600, "Lex ist lustig!");
 	glClearColor(0.6, 1, 0.5, 1);
 
