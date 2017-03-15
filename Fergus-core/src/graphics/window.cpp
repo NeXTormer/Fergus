@@ -37,6 +37,9 @@ Window::Window(int width, int height, char *title)
 	glfwSetMouseButtonCallback(m_window, mouse_button_callback);
 	glfwSetCursorPosCallback(m_window, cursor_position_callback);
 
+	//VSync
+	glfwSwapInterval(0);
+
 	if (glewInit() != GLEW_OK)
 	{
 		printf("Failed to initialize GLEW!");

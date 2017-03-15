@@ -2,40 +2,50 @@
 #include <string>
 
 #include "graphics\window.h"
+#include "graphics\shader.h"
 #include "maths\maths.h"
 #include "utils\fileutils.h"
 
+
 int main(void)
 {
-
-	std::string file = read_file("rendl.vert");
-
-	std::cout << file << std::endl;
-
-	system("pause");
-
 	Window window(800, 600, "Lex ist lustig!");
 	glClearColor(0.6, 1, 0.5, 1);
 
-	vec2 peter(1, 1);
-	vec2 rendl(2, 2);
+GLfloat vertices[] = 
+	{
+		0, 0, 0,
+		8, 0, 0,
+		0, 3, 0,
+		0, 3, 0,
+		8, 3, 0,
+		8, 0, 0
+	};
 
-	vec2 lex = rendl + peter;
+	GLuint vbo;
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(0);
 
-	std::cout << lex << std::endl;
+	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
+
+	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	shader.enable();
+	shader.setUniformMat4("pr_matrix", ortho);
+	shader.setUniformMat4("ml_matrix", mat4::translation(vec3(4, 3, 0)));
 	
+
+	shader.setUniform2f("light_pos", vec2(4.0f, 1.5f));
+	shader.setUniform4f("colour", vec4(0.2f, 0.3f, 0.8f, 1.0f));
 	while (!window.closed())
 	{
 		window.clear();
 		
-		std::cout << window.getMouseX() << ", " << window.getMouseY() << std::endl;
+		shader.setUniform2f("light_pos", vec2((float)(window.getMouseX() * 16.0f / 800), (float)(9.0f - window.getMouseY() * 9.0f / 600)));
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		glBegin(GL_TRIANGLES);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(0.5f, 0.5f);
-		glVertex2f(0.5f, -0.5f);
-		glEnd();
-		
 		window.update();
 	}
 
