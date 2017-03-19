@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <GL\glew.h>
 
 #include "../maths/maths.h"
@@ -15,7 +16,7 @@ private:
 	const char* m_FragmentPath;
 
 	GLuint load();
-	GLint getUniformLocation(const char* name);
+	GLint getUniformLocation(const GLchar* name) const;
 public:
 	Shader(const char* vertpath, const char* fragpath);
 	~Shader();
@@ -23,17 +24,17 @@ public:
 	void enable();
 	void disable();
 
-	void setUniform1f(const char* name, float value);
-	void setUniform2f(const char* name, float x, float y);
-	void setUniform3f(const char* name, float x, float y, float z);
-	void setUniform4f(const char* name, float x, float y, float z, float w);
+	void setUniform1f(const GLchar* name, float value) const;
+	void setUniform2f(const GLchar* name, float x, float y) const;
+	void setUniform3f(const GLchar* name, float x, float y, float z) const;
+	void setUniform4f(const GLchar* name, float x, float y, float z, float w) const;
 
-	void setUniform2f(const char* name, const vec2 &value);
-	void setUniform3f(const char* name, const vec3 &value);
-	void setUniform4f(const char* name, const vec4 &value);
+	void setUniform2f(const GLchar* name, const vec2 &value) const;
+	void setUniform3f(const GLchar* name, const vec3 &value) const;
+	void setUniform4f(const GLchar* name, const vec4 &value) const ;
 
-	void setUniform1i(const char* name, int value);
-	void setUniformMat4(const char* name, const mat4 &matrix);
+	void setUniform1i(const GLchar* name, int value) const;
+	void setUniformMat4(const GLchar* name, const mat4 &matrix) const;
 
 
 
