@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <thread>
+
 
 #include "graphics\window.h"
 #include "graphics\shader.h"
@@ -10,12 +13,16 @@
 #include "graphics\buffers\vertexarray.h"
 #include "graphics\renderable2d.h"
 #include "graphics\simplerenderer2d.h"
-
+#include "utils\timer.h"
 
 
 int main(void)
 {
 	Window window(960.0f, 540.0, "Lex ist lustig!");
+	Timer time;
+	float timeCounter = 0.0f;
+	unsigned int frames = 0;
+
 	glClearColor(0.6, 1, 0.5, 1);
 	mat4 ortho = mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
@@ -42,6 +49,15 @@ int main(void)
 		renderer.draw();
 
 		window.update();
+
+		//std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		frames++;
+		if (time.elapsed() > timeCounter)
+		{
+			timeCounter++;
+			printf("FPS: %d \n", frames);
+			frames = 0;
+		}
 	}
 	return 0;
 }

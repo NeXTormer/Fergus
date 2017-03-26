@@ -38,7 +38,8 @@ Window::Window(int width, int height, char *title)
 	glfwSetCursorPosCallback(m_window, cursor_position_callback);
 
 	//VSync
-	glfwSwapInterval(0.1);
+	glfwSwapInterval(0.0);
+	//glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	if (glewInit() != GLEW_OK)
 	{
@@ -75,7 +76,9 @@ void Window::update()
 		std::cout << "OpenGL Error: " << error << std::endl;
 	}
 
-	glfwPollEvents();
+	//glfwPollEvents();
+	glfwWaitEvents();
+
 	glfwGetFramebufferSize(m_window, &m_width, &m_height);
 	glViewport(0, 0, m_width, m_height);
 	glfwSwapBuffers(m_window);
