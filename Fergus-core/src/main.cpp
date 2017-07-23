@@ -4,9 +4,11 @@
 #include <thread>
 
 #include "graphics\window.h"
-#include "graphics\3d\renderers\renderer3d.h"
-#include "graphics\3d\rawmodel.h"
+#include "graphics\renderers\renderer3d.h"
+#include "graphics\models\rawmodel.h"
 #include "graphics\shader.h"
+#include "graphics\models\modeltexture.h"
+#include "graphics\models\texturedmodel.h"
 
 
 int main(void)
@@ -26,14 +28,16 @@ int main(void)
 		3, 1, 2 };
 
 	RawModel model(vertices, 18, indices, 6);
-	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
+	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	ModelTexture modelTexture("res/textures/basic.png");
+	TexturedModel texturedModel(&model, &modelTexture);
 	
 
 	while (!window.closed())
 	{
 		window.clear();
 		shader.enable();
-		renderer.render(&model);
+		renderer.render(&texturedModel);
 		shader.disable();
 
 		window.update();

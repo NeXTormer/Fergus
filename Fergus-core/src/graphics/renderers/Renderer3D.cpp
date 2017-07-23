@@ -22,3 +22,18 @@ void Renderer3D::render(RawModel* model)
 	model->indexBuffer->unbind();
 	model->vao->unbind();
 }
+
+void Renderer3D::render(TexturedModel* texturedModel)
+{
+	RawModel* model = texturedModel->getModel();
+
+	model->vao->bind();
+	model->positionBuffer->bind();
+	model->indexBuffer->bind();
+
+	glDrawElements(GL_TRIANGLES, model->indexBuffer->getCount(), GL_UNSIGNED_SHORT, nullptr);
+
+	model->positionBuffer->unbind();
+	model->indexBuffer->unbind();
+	model->vao->unbind();
+}

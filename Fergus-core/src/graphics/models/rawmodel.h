@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../buffers/vertexarray.h"
+
+///Represents a Model (vertices and indices) in 3D space
 class RawModel
 {
 public:
