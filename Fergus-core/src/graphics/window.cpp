@@ -76,8 +76,8 @@ void Window::update()
 		std::cout << "OpenGL Error: " << error << std::endl;
 	}
 
-	//glfwPollEvents();
-	glfwWaitEvents();
+	glfwPollEvents();
+	//glfwWaitEvents();
 
 	glfwGetFramebufferSize(m_window, &m_width, &m_height);
 	glViewport(0, 0, m_width, m_height);

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "buffers\vertexarray.h"
-#include "buffers\indexbuffer.h"
-#include "../maths/maths.h"
-#include "shader.h"
+#include "..\buffers\vertexarray.h"
+#include "..\buffers\indexbuffer.h"
+#include "../../maths/maths.h"
+#include "../shader.h"
 
 
 class Renderable2D

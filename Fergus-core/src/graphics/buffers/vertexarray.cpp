@@ -19,6 +19,8 @@ void VertexArray::addBuffer(Buffer* buffer, GLuint index)
 	buffer->bind();
 
 	glEnableVertexAttribArray(index);
+
+	//index, component size, type, normalized, dist btw objects, offset
 	glVertexAttribPointer(index, buffer->getComponentSize(), GL_FLOAT, GL_FALSE, 0, 0);
 
 	//add to vector

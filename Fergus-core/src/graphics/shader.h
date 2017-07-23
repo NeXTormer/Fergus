@@ -5,8 +5,9 @@
 #include <map>
 #include <GL\glew.h>
 
-#include "../maths/maths.h"
 #include "../utils/fileutils.h"
+#include "../maths/maths.h"
+
 
 class Shader
 {
