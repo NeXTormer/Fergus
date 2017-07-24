@@ -30,10 +30,15 @@ void Renderer3D::render(TexturedModel* texturedModel)
 	model->vao->bind();
 	model->positionBuffer->bind();
 	model->indexBuffer->bind();
+	model->uvBuffer->bind();
+
+	//glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texturedModel->getTexture()->getDiffuseID());
 
 	glDrawElements(GL_TRIANGLES, model->indexBuffer->getCount(), GL_UNSIGNED_SHORT, nullptr);
 
 	model->positionBuffer->unbind();
 	model->indexBuffer->unbind();
+	model->uvBuffer->unbind();
 	model->vao->unbind();
 }

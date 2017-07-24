@@ -6,11 +6,13 @@
 class RawModel
 {
 public:
-	RawModel(GLfloat* vertices, GLsizei vertCount, GLushort* indices, GLsizei indexCount);
-	~RawModel();
+	RawModel(GLfloat* vertices, GLsizei vertCount, GLushort* indices, GLsizei indexCount, GLfloat* uv, GLsizei uvLength);
 
-	VertexArray *vao;
-	Buffer *positionBuffer;
+	~RawModel();
+	
+	VertexArray* vao;
+	Buffer* positionBuffer;
+	Buffer* uvBuffer;
 	IndexBuffer* indexBuffer;
 
 	GLsizei getVertexCount();

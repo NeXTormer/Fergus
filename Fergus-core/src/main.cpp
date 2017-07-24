@@ -19,17 +19,28 @@ int main(void)
 	
 
 	GLfloat vertices[] = 
-		{ -0.5f, 0.5f, 0, 
+	{ 
+		-0.5f,  0.5f, 0, 
 		-0.5f, -0.5f, 0, 
-		0.5f, -0.5f, 0, 
-		0.5f, 0.5f, 0 };
+		 0.5f, -0.5f, 0, 
+		 0.5f,  0.5f, 0
+	};
 	GLushort indices[] = 
-		{ 0, 1, 3, 
-		3, 1, 2 };
+	{
+		0, 1, 3, 
+		3, 1, 2 
+	};
+	GLfloat texturecoords[] = 
+	{
+		0.0f, 0.0f,
+		0.0f, 1.0f,
+		1.0f, 1.0f, 
+		1.0f, 0.0f
+	};
 
-	RawModel model(vertices, 18, indices, 6);
+	RawModel model(vertices, 18, indices, 6, texturecoords, 8);
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-	ModelTexture modelTexture("res/textures/basic.png");
+	ModelTexture modelTexture("res/textures/basic2.png");
 	TexturedModel texturedModel(&model, &modelTexture);
 	
 

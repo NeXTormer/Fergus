@@ -138,4 +138,9 @@
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\basic.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
