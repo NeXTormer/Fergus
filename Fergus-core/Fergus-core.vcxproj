@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\entities\Entity.cpp" />
     <ClCompile Include="src\graphics\models\ModelTexture.cpp" />
     <ClCompile Include="src\graphics\models\rawmodel.cpp" />
     <ClCompile Include="src\graphics\models\TexturedModel.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="src\utils\timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />

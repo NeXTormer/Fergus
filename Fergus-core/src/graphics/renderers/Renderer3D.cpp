@@ -32,13 +32,39 @@ void Renderer3D::render(TexturedModel* texturedModel)
 	model->indexBuffer->bind();
 	model->uvBuffer->bind();
 
-	//glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texturedModel->getTexture()->getDiffuseID());
-
+	
 	glDrawElements(GL_TRIANGLES, model->indexBuffer->getCount(), GL_UNSIGNED_SHORT, nullptr);
 
 	model->positionBuffer->unbind();
 	model->indexBuffer->unbind();
 	model->uvBuffer->unbind();
 	model->vao->unbind();
+}
+
+void Renderer3D::render(Entity* entity, Shader* shader)
+{
+	TexturedModel* texturedModel = entity->getTexturedModel();
+	RawModel* model = texturedModel->getModel();
+
+	model->vao->bind();
+	model->positionBuffer->bind();
+	model->indexBuffer->bind();
+	model->uvBuffer->bind();
+
+	shader->enable();
+
+	shader->setUniformMat4("ml_matrix", mat4::transformation(entity->position, 90, entity->rotation, vec3(entity->scaleFactor, entity->scaleFactor, entity->scaleFactor)));
+
+	glBindTexture(GL_TEXTURE_2D, texturedModel->getTexture()->getDiffuseID());
+
+	glDrawElements(GL_TRIANGLES, model->indexBuffer->getCount(), GL_UNSIGNED_SHORT, nullptr);
+
+	shader->disable();
+
+	model->positionBuffer->unbind();
+	model->indexBuffer->unbind();
+	model->uvBuffer->unbind();
+	model->vao->unbind();
+
 }

@@ -9,6 +9,7 @@
 #include "graphics\shader.h"
 #include "graphics\models\modeltexture.h"
 #include "graphics\models\texturedmodel.h"
+#include "graphics\entities\entity.h"
 
 
 int main(void)
@@ -42,14 +43,16 @@ int main(void)
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	ModelTexture modelTexture("res/textures/basic2.png");
 	TexturedModel texturedModel(&model, &modelTexture);
+
+	Entity entity(&texturedModel, vec3(-1, 0, 0), vec3(0, 0, 0), 0, 1);
 	
 
 	while (!window.closed())
 	{
 		window.clear();
-		shader.enable();
-		renderer.render(&texturedModel);
-		shader.disable();
+
+		renderer.render(&entity, &shader);
+		entity.rotate(vec3(1, 0, 0));
 
 		window.update();
 	}

@@ -3,6 +3,8 @@
 #include "../models/rawmodel.h"
 #include "../models/texturedmodel.h"
 #include "../models/modeltexture.h"
+#include "../entities/entity.h"
+#include "../shader.h"
 
 class Renderer3D
 {
@@ -12,7 +14,7 @@ public:
 	void prepare();
 	void render(RawModel* model);
 	void render(TexturedModel* model);
-
+	void render(Entity* entity, Shader* shader);
 
 private:
 
