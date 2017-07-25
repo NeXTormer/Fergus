@@ -30,12 +30,12 @@ public:
 	void setUniform3f(const GLchar* name, float x, float y, float z) const;
 	void setUniform4f(const GLchar* name, float x, float y, float z, float w) const;
 
-	void setUniform2f(const GLchar* name, const vec2 &value) const;
-	void setUniform3f(const GLchar* name, const vec3 &value) const;
-	void setUniform4f(const GLchar* name, const vec4 &value) const ;
+	void setUniform2f(const GLchar* name, const glm::vec2 &value) const;
+	void setUniform3f(const GLchar* name, const glm::vec3 &value) const;
+	void setUniform4f(const GLchar* name, const glm::vec4 &value) const ;
 
 	void setUniform1i(const GLchar* name, int value) const;
-	void setUniformMat4(const GLchar* name, const mat4 &matrix) const;
+	void setUniformMat4(const GLchar* name, const glm::mat4 &matrix) const;
 
 
 

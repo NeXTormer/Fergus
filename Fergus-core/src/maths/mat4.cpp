@@ -140,6 +140,12 @@ mat4 mat4::transformation(const vec3& translation, const float angle, const vec3
 {
 	mat4 result(1.0f);
 
+	//scale
+	result.elements[0 + 0 * 4] = scale.x;
+	result.elements[1 + 1 * 4] = scale.y;
+	result.elements[2 + 2 * 4] = scale.z;
+
+
 	//translation
 	result.elements[0 + 3 * 4] = translation.x;
 	result.elements[1 + 3 * 4] = translation.y;
@@ -167,11 +173,7 @@ mat4 mat4::transformation(const vec3& translation, const float angle, const vec3
 	result.elements[1 + 2 * 4] = y * z * omc - x * s;
 	result.elements[2 + 2 * 4] = z * omc + c;
 
-	//scale
-	result.elements[0 + 0 * 4] = scale.x;
-	result.elements[1 + 1 * 4] = scale.y;
-	result.elements[2 + 2 * 4] = scale.z;
-
+	
 	return result;
 }
 

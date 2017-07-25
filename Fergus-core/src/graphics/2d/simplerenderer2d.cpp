@@ -15,7 +15,10 @@ void SimpleRenderer2D::draw()
 		renderable->getIBO()->bind();
 		renderable->getShader().enable();
 
-		renderable->getShader().setUniformMat4("ml_matrix", mat4::translation(renderable->getPosition()));
+		glm::mat4 ml_matrix;
+		glm::translate(ml_matrix, glm::vec3(renderable->getPosition().x, renderable->getPosition().y, renderable->getPosition().z));
+
+		renderable->getShader().setUniformMat4("ml_matrix", ml_matrix);
 		glDrawElements(GL_TRIANGLES, renderable->getIBO()->getCount(), GL_UNSIGNED_SHORT, nullptr);
 
 		renderable->getIBO()->unbind();

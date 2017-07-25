@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\entities\entity.h" />
+    <ClInclude Include="src\graphics\entities\transformable.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />

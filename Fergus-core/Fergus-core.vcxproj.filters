@@ -137,6 +137,9 @@
     <ClInclude Include="src\graphics\entities\entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\graphics\entities\transformable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\2d\basic.frag" />

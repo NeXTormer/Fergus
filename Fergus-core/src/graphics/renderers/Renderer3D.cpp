@@ -54,7 +54,7 @@ void Renderer3D::render(Entity* entity, Shader* shader)
 
 	shader->enable();
 
-	shader->setUniformMat4("ml_matrix", mat4::transformation(entity->position, 90, entity->rotation, vec3(entity->scaleFactor, entity->scaleFactor, entity->scaleFactor)));
+	shader->setUniformMat4("ml_matrix", entity->getTransform());
 
 	glBindTexture(GL_TEXTURE_2D, texturedModel->getTexture()->getDiffuseID());
 

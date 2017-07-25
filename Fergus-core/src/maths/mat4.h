@@ -32,7 +32,7 @@ struct mat4
 	static mat4 perspective(float fov, float aspectRatio, float near, float far);
 
 	static mat4 translation(const vec3& translation);
-	static mat4 rotation(float angle, const vec3& axis);
+	static mat4 rotation(float angle, const vec3& rotation);
 	static mat4 scale(const vec3& scale);
 	static mat4 transformation(const vec3& translation, const float angle, const vec3& axis, const vec3& scale);
 };

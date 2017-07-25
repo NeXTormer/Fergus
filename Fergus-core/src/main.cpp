@@ -12,7 +12,7 @@
 #include "graphics\entities\entity.h"
 
 
-int main(void)
+int main()
 {
 	Window window(960.0f, 540.0, "Lex ist lustig!");
 
@@ -44,7 +44,7 @@ int main(void)
 	ModelTexture modelTexture("res/textures/basic2.png");
 	TexturedModel texturedModel(&model, &modelTexture);
 
-	Entity entity(&texturedModel, vec3(-1, 0, 0), vec3(0, 0, 0), 0, 1);
+	Entity entity(&texturedModel, glm::vec3(0, 0, 0), glm::vec3(0, 0, 0), 1);
 	
 
 	while (!window.closed())
@@ -52,8 +52,9 @@ int main(void)
 		window.clear();
 
 		renderer.render(&entity, &shader);
-		entity.rotate(vec3(1, 0, 0));
-
+		entity.rotate(glm::vec3(0.0001, 0.0001, 0.0001));
+		//entity.move(glm::vec3(0.000001, 0, 0));
+		//entity.scale(0.00001);
 		window.update();
 	}
 	return 0;
