@@ -43,7 +43,7 @@ void Renderer3D::render(TexturedModel* texturedModel)
 	model->vao->unbind();
 }
 
-void Renderer3D::render(Entity* entity, Shader* shader)
+void Renderer3D::render(Entity* entity, Shader* shader, Camera* cam)
 {
 	TexturedModel* texturedModel = entity->getTexturedModel();
 	RawModel* model = texturedModel->getModel();
@@ -57,6 +57,7 @@ void Renderer3D::render(Entity* entity, Shader* shader)
 
 	shader->setUniformMat4("ml_matrix", entity->getTransform());
 	shader->setUniformMat4("pr_matrix", projectionmatrix);
+	shader->setUniformMat4("vw_matrix", cam->getViewMatrix());
 
 	glBindTexture(GL_TEXTURE_2D, texturedModel->getTexture()->getDiffuseID());
 

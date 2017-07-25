@@ -4,6 +4,7 @@
 #include <thread>
 
 #include "graphics\window.h"
+#include "graphics\camera.h"
 #include "graphics\renderers\renderer3d.h"
 #include "graphics\models\rawmodel.h"
 #include "graphics\shader.h"
@@ -15,6 +16,10 @@
 int main()
 {
 	Window window(960.0f, 540.0, "Lex ist lustig!");
+
+	Camera camera(glm::vec3(0, 0, 0), window);
+
+
 
 	Renderer3D renderer;
 	
@@ -51,7 +56,9 @@ int main()
 	{
 		window.clear();
 		
-		renderer.render(&entity, &shader);
+		camera.update();
+
+		renderer.render(&entity, &shader, &camera);
 		//entity.rotate(glm::vec3(0.0001, 0.0001, 0.0001));
 		entity.move(glm::vec3(0, 0, 0.00001));
 		//entity.scale(0.00001);

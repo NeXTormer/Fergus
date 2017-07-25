@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\entities\Entity.cpp" />
     <ClCompile Include="src\graphics\models\ModelTexture.cpp" />
     <ClCompile Include="src\graphics\models\rawmodel.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\utils\timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />

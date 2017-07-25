@@ -36,9 +36,9 @@ public:
 		
 		trmat = glm::scale(trmat, glm::vec3(scaleFactor));
 
-		trmat = glm::rotate(trmat, rotation.x, glm::vec3(1, 0, 0));
-		trmat = glm::rotate(trmat, rotation.y, glm::vec3(0, 1, 0));
-		trmat = glm::rotate(trmat, rotation.z, glm::vec3(0, 0, 1));
+		trmat = glm::rotate(trmat, toRadians(rotation.x), glm::vec3(1, 0, 0));
+		trmat = glm::rotate(trmat, toRadians(rotation.y), glm::vec3(0, 1, 0));
+		trmat = glm::rotate(trmat, toRadians(rotation.z), glm::vec3(0, 0, 1));
 
 		trmat = glm::translate(trmat, position);
 
@@ -52,9 +52,9 @@ protected:
 	{
 		transformationmatrix = glm::scale(transformationmatrix, glm::vec3(scaleFactor));
 
-		transformationmatrix = glm::rotate(transformationmatrix, rot.x, glm::vec3(1, 0, 0));
-		transformationmatrix = glm::rotate(transformationmatrix, rot.y, glm::vec3(0, 1, 0));
-		transformationmatrix = glm::rotate(transformationmatrix, rot.z, glm::vec3(0, 0, 1));
+		transformationmatrix = glm::rotate(transformationmatrix, toRadians(rot.x), glm::vec3(1, 0, 0));
+		transformationmatrix = glm::rotate(transformationmatrix, toRadians(rot.y), glm::vec3(0, 1, 0));
+		transformationmatrix = glm::rotate(transformationmatrix, toRadians(rot.z), glm::vec3(0, 0, 1));
 		
 		transformationmatrix = glm::translate(transformationmatrix, position);
 	}

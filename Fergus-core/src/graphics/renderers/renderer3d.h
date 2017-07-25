@@ -5,6 +5,7 @@
 #include "../models/modeltexture.h"
 #include "../entities/entity.h"
 #include "../shader.h"
+#include "../camera.h"
 
 class Renderer3D
 {
@@ -14,7 +15,7 @@ public:
 	void prepare();
 	void render(RawModel* model);
 	void render(TexturedModel* model);
-	void render(Entity* entity, Shader* shader);
+	void render(Entity* entity, Shader* shader, Camera* cam);
 
 private:
 	glm::mat4 projectionmatrix;

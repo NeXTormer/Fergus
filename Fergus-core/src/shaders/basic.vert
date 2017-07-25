@@ -8,10 +8,11 @@ out vec2 uvCoords;
 
 uniform mat4 ml_matrix;
 uniform mat4 pr_matrix;
+uniform mat4 vw_matrix;
 
 void main(void)
 {
-	gl_Position = pr_matrix * ml_matrix * vec4(position, 1.0);
+	gl_Position = pr_matrix * vw_matrix * ml_matrix * vec4(position, 1.0);
 
 	uvCoords = uvCoords_in;
 }
