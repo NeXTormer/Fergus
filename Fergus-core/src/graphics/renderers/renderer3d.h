@@ -17,5 +17,5 @@ public:
 	void render(Entity* entity, Shader* shader);
 
 private:
-
+	glm::mat4 projectionmatrix;
 };
