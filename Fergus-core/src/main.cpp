@@ -57,11 +57,8 @@ int main()
 		window.clear();
 		
 		camera.update();
-
 		renderer.render(&entity, &shader, &camera);
-		//entity.rotate(glm::vec3(0.0001, 0.0001, 0.0001));
-		entity.move(glm::vec3(0, 0, 0.00001));
-		//entity.scale(0.00001);
+
 		window.update();
 	}
 	return 0;

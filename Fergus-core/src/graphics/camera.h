@@ -26,6 +26,6 @@ private:
 	Window& window;
 	glm::mat4 vw_matrix;
 
-	inline void updateViewMatrix();
+	void updateViewMatrix();
 
 };

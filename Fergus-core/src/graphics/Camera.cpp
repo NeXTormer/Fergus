@@ -12,19 +12,19 @@ void Camera::update()
 {
 	if(window.isKeyPressed(GLFW_KEY_W))
 	{
-		position.z -= 0.0001;
+		position.z -= 0.001;
 	}
 	if (window.isKeyPressed(GLFW_KEY_A))
 	{
-		position.x -= 0.0001;
+		position.x -= 0.001;
 	}
 	if (window.isKeyPressed(GLFW_KEY_S))
 	{
-		position.z += 0.0001;
+		position.z += 0.001;
 	}
 	if (window.isKeyPressed(GLFW_KEY_D))
 	{
-		position.x += 0.0001;
+		position.x += 0.001;
 	}
 
 	updateViewMatrix();
@@ -32,26 +32,18 @@ void Camera::update()
 
 glm::mat4& Camera::getViewMatrix()
 {
-	glm::mat4 mat;
-
-	glm::rotate(mat, toRadians(pitch), glm::vec3(1, 0, 0));
-	glm::rotate(mat, toRadians(yaw), glm::vec3(0, 1, 0));
-	glm::rotate(mat, toRadians(roll), glm::vec3(0, 0, 1));
-
-	glm::translate(mat, glm::vec3(-position.x, -position.y, -position.z));
-
-	return mat;
+	return vw_matrix;
 }
 
-inline void Camera::updateViewMatrix()
+void Camera::updateViewMatrix()
 {
 	glm::mat4 mat;
 
-	glm::rotate(mat, toRadians(pitch), glm::vec3(1, 0, 0));
-	glm::rotate(mat, toRadians(yaw), glm::vec3(0, 1, 0));
-	glm::rotate(mat, toRadians(roll), glm::vec3(0, 0, 1));
-
-	glm::translate(mat, glm::vec3(-position.x, -position.y, -position.z));
+	mat = glm::rotate(mat, toRadians(pitch), glm::vec3(1, 0, 0));
+	mat = glm::rotate(mat, toRadians(yaw), glm::vec3(0, 1, 0));
+	mat = glm::rotate(mat, toRadians(roll), glm::vec3(0, 0, 1));
+	
+	mat = glm::translate(mat, glm::vec3(-position.x, -position.y, -position.z));
 
 	vw_matrix = mat;
 }
