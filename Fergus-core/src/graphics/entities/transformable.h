@@ -34,13 +34,14 @@ public:
 	{
 		glm::mat4 trmat;
 		
-		trmat = glm::scale(trmat, glm::vec3(scaleFactor));
+		//trmat = glm::scale(trmat, glm::vec3(scaleFactor));
+		trmat = glm::translate(trmat, position);
 
 		trmat = glm::rotate(trmat, toRadians(rotation.x), glm::vec3(1, 0, 0));
 		trmat = glm::rotate(trmat, toRadians(rotation.y), glm::vec3(0, 1, 0));
 		trmat = glm::rotate(trmat, toRadians(rotation.z), glm::vec3(0, 0, 1));
 
-		trmat = glm::translate(trmat, position);
+
 
 		transformationmatrix = trmat;
 	}

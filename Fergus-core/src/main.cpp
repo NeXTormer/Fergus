@@ -24,27 +24,85 @@ int main()
 	Renderer3D renderer;
 	
 
-	GLfloat vertices[] = 
-	{ 
-		-0.5f,  0.5f, 0, 
-		-0.5f, -0.5f, 0, 
-		 0.5f, -0.5f, 0, 
-		 0.5f,  0.5f, 0
-	};
-	GLushort indices[] = 
-	{
-		0, 1, 3, 
-		3, 1, 2 
-	};
-	GLfloat texturecoords[] = 
-	{
-		0.0f, 0.0f,
-		0.0f, 1.0f,
-		1.0f, 1.0f, 
-		1.0f, 0.0f
+	GLfloat vertices [] = {
+		-0.5f,0.5f,0,
+		-0.5f,-0.5f,0,
+		0.5f,-0.5f,0,
+		0.5f,0.5f,0,
+
+		-0.5f,0.5f,1,
+		-0.5f,-0.5f,1,
+		0.5f,-0.5f,1,
+		0.5f,0.5f,1,
+
+		0.5f,0.5f,0,
+		0.5f,-0.5f,0,
+		0.5f,-0.5f,1,
+		0.5f,0.5f,1,
+
+		-0.5f,0.5f,0,
+		-0.5f,-0.5f,0,
+		-0.5f,-0.5f,1,
+		-0.5f,0.5f,1,
+
+		-0.5f,0.5f,1,
+		-0.5f,0.5f,0,
+		0.5f,0.5f,0,
+		0.5f,0.5f,1,
+
+		-0.5f,-0.5f,1,
+		-0.5f,-0.5f,0,
+		0.5f,-0.5f,0,
+		0.5f,-0.5f,1
+
 	};
 
-	RawModel model(vertices, 18, indices, 6, texturecoords, 8);
+	GLfloat textureCoords [] = {
+
+		0,0,
+		0,1,
+		1,1,
+		1,0,
+		0,0,
+		0,1,
+		1,1,
+		1,0,
+		0,0,
+		0,1,
+		1,1,
+		1,0,
+		0,0,
+		0,1,
+		1,1,
+		1,0,
+		0,0,
+		0,1,
+		1,1,
+		1,0,
+		0,0,
+		0,1,
+		1,1,
+		1,0
+
+	};
+
+	GLushort indices [] = {
+		0,1,3,
+		3,1,2,
+		4,5,7,
+		7,5,6,
+		8,9,11,
+		11,9,10,
+		12,13,15,
+		15,13,14,
+		16,17,19,
+		19,17,18,
+		20,21,23,
+		23,21,22
+
+	};
+
+	RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);
 	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
 	ModelTexture modelTexture("res/textures/basic2.png");
 	TexturedModel texturedModel(&model, &modelTexture);
@@ -57,6 +115,9 @@ int main()
 		window.clear();
 		
 		camera.update();
+
+		entity.rotate(glm::vec3(0.01f, 0.01f, 0.0f));
+
 		renderer.render(&entity, &shader, &camera);
 
 		window.update();
