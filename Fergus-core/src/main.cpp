@@ -2,6 +2,11 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <assimp/cimport.h>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+#include <assimp/Importer.hpp>
+
 
 #include "graphics\window.h"
 #include "graphics\camera.h"
@@ -18,8 +23,6 @@ int main()
 	Window window(960.0f, 540.0, "Lex ist lustig!");
 
 	Camera camera(glm::vec3(0, 0, 0), window);
-
-
 
 	Renderer3D renderer;
 	

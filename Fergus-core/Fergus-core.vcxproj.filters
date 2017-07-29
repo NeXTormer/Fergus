@@ -157,5 +157,8 @@
     <Image Include="res\textures\basic.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\textures\basic2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
