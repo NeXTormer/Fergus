@@ -32,3 +32,4 @@ GLuint ModelTexture::generateTexture(char* path)
 
 	return id;
 }
+
