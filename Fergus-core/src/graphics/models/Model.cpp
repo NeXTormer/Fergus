@@ -15,7 +15,7 @@ void Model::loadModel(std::string path)
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
 	if (!scene || !scene->mRootNode || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE)
 	{
-		printf("ERROR::ASSIMP::&s", importer.GetErrorString());
+		std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
 		return;
 	}
 	directory = path.substr(0, path.find_last_of('/'));
@@ -85,6 +85,8 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
 		std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
 		textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 	}
+
+	return Mesh(vertices, indices, textures);
 }
 
 std::vector<Texture> Model::loadMaterialTextures(aiMaterial* material, aiTextureType type, std::string typeName)

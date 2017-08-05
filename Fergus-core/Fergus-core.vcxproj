@@ -133,6 +133,8 @@
   <ItemGroup>
     <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\entities\Entity.cpp" />
+    <ClCompile Include="src\graphics\models\Mesh.cpp" />
+    <ClCompile Include="src\graphics\models\Model.cpp" />
     <ClCompile Include="src\graphics\models\ModelTexture.cpp" />
     <ClCompile Include="src\graphics\models\rawmodel.cpp" />
     <ClCompile Include="src\graphics\models\TexturedModel.cpp" />
@@ -155,6 +157,8 @@
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
+    <ClInclude Include="src\graphics\models\mesh.h" />
+    <ClInclude Include="src\graphics\models\model.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />

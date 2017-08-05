@@ -73,7 +73,7 @@ void Window::update()
 	GLenum error = glGetError();
 	if (error != GL_NO_ERROR)
 	{
-		std::cout << "OpenGL Error: " << error << std::endl;
+		std::cout << "(W) OpenGL Error: " << error << std::endl;
 	}
 
 	glfwPollEvents();

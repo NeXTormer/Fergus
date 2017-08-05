@@ -4,6 +4,8 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include <iostream>
+
 #include "mesh.h"
 #include "../shader.h"
 #include "../../utils/stb_image.h"
