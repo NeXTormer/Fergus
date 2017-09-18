@@ -140,7 +140,7 @@ int main()
 
 	//Entity entity(&texturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
 	
-	Model model("res/models/nanosuit/nanosuit.obj");
+	Model model("res/models/nanosuit/nanosuit.dae");
 	
 
 	while (!window.closed())
