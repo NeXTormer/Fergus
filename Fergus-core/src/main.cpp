@@ -20,6 +20,9 @@
 #include "graphics\entities\entity.h"
 #include "graphics\models\model.h"
 
+//TODO: load shader in Mesh::draw
+
+
 
 // Breakpoints that should ALWAYS trigger (EVEN IN RELEASE BUILDS) [x86]!
 #ifdef _MSC_VER
