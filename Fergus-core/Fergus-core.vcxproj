@@ -154,6 +154,7 @@
     <ClCompile Include="src\utils\timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\fergus.h" />
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
@@ -178,6 +179,8 @@
     <ClInclude Include="src\maths\vec3.h" />
     <ClInclude Include="src\maths\vec4.h" />
     <ClInclude Include="src\utils\fileutils.h" />
+    <ClInclude Include="src\utils\macros.h" />
+    <ClInclude Include="src\utils\opengl_debug.h" />
     <ClInclude Include="src\utils\stb_image.h" />
     <ClInclude Include="src\utils\timer.h" />
   </ItemGroup>

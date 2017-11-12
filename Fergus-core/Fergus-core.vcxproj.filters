@@ -158,6 +158,15 @@
     <ClInclude Include="src\graphics\models\model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\fergus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\opengl_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\shaders\2d\basic.frag" />
