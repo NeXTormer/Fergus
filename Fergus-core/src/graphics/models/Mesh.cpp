@@ -42,7 +42,7 @@ void Mesh::draw(Shader* shader)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo); //not sure if necessary
 	glBindVertexArray(vao);
 	
-	GLCall(glDrawElements(GL_TRIANGLES, indices.size(), GL_INT, nullptr));
+	GLCall(glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, nullptr));
 	
 }
 
