@@ -26,11 +26,11 @@ void Camera::update()
 	{
 		position.x += 0.001;
 	}
-	if (window.isKeyPressed(GLFW_KEY_SPACE))
+	if (window.isKeyPressed(GLFW_KEY_Q))
 	{
 		position.y += 0.001;
 	}
-	if (window.isKeyPressed(GLFW_KEY_TAB))
+	if (window.isKeyPressed(GLFW_KEY_E))
 	{
 		position.y -= 0.001;
 	}

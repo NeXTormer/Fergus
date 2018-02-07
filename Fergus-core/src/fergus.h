@@ -16,6 +16,7 @@
 
 #include "graphics\entities\entity.h"
 #include "graphics\entities\transformable.h"
+#include "graphics\entities\light.h"
 
 #include "graphics\models\modeltexture.h"
 #include "graphics\models\rawmodel.h"

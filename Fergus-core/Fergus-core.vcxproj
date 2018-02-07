@@ -155,6 +155,7 @@
     <ClInclude Include="src\fergus.h" />
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
+    <ClInclude Include="src\graphics\entities\light.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />

@@ -25,9 +25,6 @@ int main()
 	Camera camera(glm::vec3(-5, 3, 5), window);
 
 	Renderer3D renderer;
-	
-	RawModel person = OBJLoader::loadModel("res/models/person.obj");
-
 
 	GLfloat vertices [] = {
 		-0.5f,0.5f,0,
@@ -107,15 +104,20 @@ int main()
 
 	};
 
+	RawModel dragonModel = OBJLoader::loadModel("res/models/person.obj");
+
+
 	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
 	RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);
 	ModelTexture modelTexture("res/textures/basic2.png");
+	ModelTexture dragonTexture("res/textures/red.jpg");
+
 	TexturedModel texturedModel(&model, &modelTexture);
-	TexturedModel texturedModel2(&person, &modelTexture);
+	TexturedModel dragonTexturedModel(&dragonModel, &dragonTexture);
 
 	Entity entity(&texturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
-	Entity entity2(&texturedModel2, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
-		
+	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
+	
 
 	while (!window.closed())
 	{
@@ -137,9 +139,10 @@ int main()
 		shader.setUniformMat4("ml_matrix", entity.getTransform());
 		
 
-		entity2.rotate(glm::vec3(0.0f, 0.01f, 0.0f));
+		dragon.rotate(glm::vec3(0.0f, 0.013f, 0.0f));
 
-		renderer.render(&entity2, &shader, &camera);
+		//renderer.render(&dragonModel);
+		renderer.render(&dragon, &shader, &camera);
 
 		window.update();
 	}

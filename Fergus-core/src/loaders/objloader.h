@@ -177,6 +177,7 @@ public:
 
 		}
 
+		//note: all model data pointers are invalid after this step because they fall out of scope
 		return RawModel(&a_vertices[0], a_vertices.size(), &a_indices[0], a_vertices.size(), &a_texCoords[0], a_vertices.size());
 	}
 
