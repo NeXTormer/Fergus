@@ -1,5 +1,7 @@
 #pragma once
 
+#include <GL\glew.h>
+
 #include "graphics\camera.h"
 #include "graphics\shader.h"
 #include "graphics\window.h"
@@ -15,8 +17,6 @@
 #include "graphics\entities\entity.h"
 #include "graphics\entities\transformable.h"
 
-#include "graphics\models\mesh.h"
-#include "graphics\models\model.h"
 #include "graphics\models\modeltexture.h"
 #include "graphics\models\rawmodel.h"
 #include "graphics\models\texturedmodel.h"

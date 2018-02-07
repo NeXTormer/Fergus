@@ -133,8 +133,6 @@
   <ItemGroup>
     <ClCompile Include="src\graphics\Camera.cpp" />
     <ClCompile Include="src\graphics\entities\Entity.cpp" />
-    <ClCompile Include="src\graphics\models\Mesh.cpp" />
-    <ClCompile Include="src\graphics\models\Model.cpp" />
     <ClCompile Include="src\graphics\models\ModelTexture.cpp" />
     <ClCompile Include="src\graphics\models\rawmodel.cpp" />
     <ClCompile Include="src\graphics\models\TexturedModel.cpp" />
@@ -158,8 +156,6 @@
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
-    <ClInclude Include="src\graphics\models\mesh.h" />
-    <ClInclude Include="src\graphics\models\model.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />
@@ -172,6 +168,7 @@
     <ClInclude Include="src\graphics\shader.h" />
     <ClInclude Include="src\graphics\2d\simplerenderer2d.h" />
     <ClInclude Include="src\graphics\window.h" />
+    <ClInclude Include="src\loaders\objloader.h" />
     <ClInclude Include="src\maths\mat4.h" />
     <ClInclude Include="src\maths\maths.h" />
     <ClInclude Include="src\maths\maths_general.h" />
@@ -187,8 +184,8 @@
   <ItemGroup>
     <None Include="src\shaders\2d\basic.frag" />
     <None Include="src\shaders\2d\basic.vert" />
-    <None Include="src\shaders\basic.frag" />
-    <None Include="src\shaders\basic.vert" />
+    <None Include="src\shaders\3d\basic.frag" />
+    <None Include="src\shaders\3d\basic.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\basic.png" />

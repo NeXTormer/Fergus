@@ -12,6 +12,7 @@
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
+#include "loaders\objloader.h"
 
 
 //TODO: load shader in Mesh::draw
@@ -21,10 +22,12 @@ int main()
 	Window window(960.0f, 540.0, "Lex ist lustig!");
 
 
-	Camera camera(glm::vec3(0, 0, 0), window);
+	Camera camera(glm::vec3(-5, 3, 5), window);
 
 	Renderer3D renderer;
 	
+	RawModel person = OBJLoader::loadModel("res/models/person.obj");
+
 
 	GLfloat vertices [] = {
 		-0.5f,0.5f,0,
@@ -104,15 +107,15 @@ int main()
 
 	};
 
-	//RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);
-	Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-	//ModelTexture modelTexture("res/textures/basic2.png");
-	//TexturedModel texturedModel(&model, &modelTexture);
+	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
+	RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);
+	ModelTexture modelTexture("res/textures/basic2.png");
+	TexturedModel texturedModel(&model, &modelTexture);
+	TexturedModel texturedModel2(&person, &modelTexture);
 
-	//Entity entity(&texturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
-	
-	Model suit("res/models/bunny.obj");
-	
+	Entity entity(&texturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
+	Entity entity2(&texturedModel2, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
+		
 
 	while (!window.closed())
 	{
@@ -130,19 +133,13 @@ int main()
 		shader.setUniformMat4("vw_matrix", view);
 
 		// render the loaded model
-		glm::mat4 model;
-		model = glm::translate(model, glm::vec3(0, -0.1, 0));
-		model = glm::scale(model, glm::vec3(0.002, 0.002, 0.002));
-		model = glm::rotate(model, 100.f, glm::vec3(0, 1, 0));
-
-		shader.setUniformMat4("ml_matrix", model);
 		
-		suit.draw(&shader);
+		shader.setUniformMat4("ml_matrix", entity.getTransform());
 		
 
-		//entity.rotate(glm::vec3(0.01f, 0.01f, 0.0f));
+		entity2.rotate(glm::vec3(0.0f, 0.01f, 0.0f));
 
-		//renderer.render(&entity, &shader, &camera);
+		renderer.render(&entity2, &shader, &camera);
 
 		window.update();
 	}

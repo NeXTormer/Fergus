@@ -2,7 +2,6 @@
 
 Renderer3D::Renderer3D()
 {
-	glClearColor(1.0f, 0.4f, 0.0f, 1.0f);
 	projectionmatrix = glm::perspective(90.0f, 16.0f / 9.0f, 0.1f, 1000.0f);
 	glEnable(GL_DEPTH_TEST);
 }

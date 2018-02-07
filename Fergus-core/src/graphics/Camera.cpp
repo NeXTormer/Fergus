@@ -26,6 +26,14 @@ void Camera::update()
 	{
 		position.x += 0.001;
 	}
+	if (window.isKeyPressed(GLFW_KEY_SPACE))
+	{
+		position.y += 0.001;
+	}
+	if (window.isKeyPressed(GLFW_KEY_TAB))
+	{
+		position.y -= 0.001;
+	}
 
 	updateViewMatrix();
 }
