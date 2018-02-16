@@ -155,10 +155,19 @@
     <ClInclude Include="src\utils\macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\graphics\entities\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\loaders\objloader_old.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\loaders\objloader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\entities\light.h">
+    <ClInclude Include="src\loaders\tiny_obj_loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

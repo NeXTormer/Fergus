@@ -104,8 +104,9 @@ int main()
 
 	};
 
-	RawModel dragonModel = OBJLoader::loadModel("res/models/person.obj");
+	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/dragon.obj");
 
+	OBJLoader::TestLoadObj("res/models/person.obj");
 
 	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
 	RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);

@@ -157,6 +157,7 @@
     <ClInclude Include="src\graphics\entities\entity.h" />
     <ClInclude Include="src\graphics\entities\light.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
+    <ClInclude Include="src\graphics\light.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />
@@ -170,6 +171,8 @@
     <ClInclude Include="src\graphics\2d\simplerenderer2d.h" />
     <ClInclude Include="src\graphics\window.h" />
     <ClInclude Include="src\loaders\objloader.h" />
+    <ClInclude Include="src\loaders\objloader_old.h" />
+    <ClInclude Include="src\loaders\tiny_obj_loader.h" />
     <ClInclude Include="src\maths\mat4.h" />
     <ClInclude Include="src\maths\maths.h" />
     <ClInclude Include="src\maths\maths_general.h" />
