@@ -50,6 +50,6 @@ public:
 			indices_t.push_back((GLushort)shapes[0].mesh.indices[i].vertex_index);
 		}
 
-		return RawModel(&attrib.vertices[0], attrib.vertices.size(), &indices_t[0], indices_t.size(), &attrib.texcoords[0], attrib.texcoords.size());
+		return RawModel(&attrib.vertices[0], attrib.vertices.size(), &attrib.normals[0], attrib.normals.size(), &indices_t[0], indices_t.size(), &attrib.texcoords[0], attrib.texcoords.size());
 	}	
 };

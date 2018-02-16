@@ -34,6 +34,10 @@ void Camera::update()
 	{
 		position.y -= 0.001;
 	}
+	if (window.isKeyPressed(GLFW_KEY_SPACE))
+	{
+		std::cout << "Camera Position: " << position.x << ", " << position.y << ", " << position.z << std::endl;
+	}
 
 	updateViewMatrix();
 }

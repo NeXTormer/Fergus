@@ -48,8 +48,8 @@ public:
 
 
 protected:
-	Transformable(glm::vec3 pos, glm::vec3 rot, float sc)
-		: position(pos), rotation(rot), scaleFactor(sc)
+	Transformable(glm::vec3 pos, glm::vec3 rot, float scale)
+		: position(pos), rotation(rot), scaleFactor(scale)
 	{
 		transformationmatrix = glm::scale(transformationmatrix, glm::vec3(scaleFactor));
 

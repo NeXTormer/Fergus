@@ -155,9 +155,8 @@
     <ClInclude Include="src\fergus.h" />
     <ClInclude Include="src\graphics\camera.h" />
     <ClInclude Include="src\graphics\entities\entity.h" />
-    <ClInclude Include="src\graphics\entities\light.h" />
     <ClInclude Include="src\graphics\entities\transformable.h" />
-    <ClInclude Include="src\graphics\light.h" />
+    <ClInclude Include="src\graphics\entities\light.h" />
     <ClInclude Include="src\graphics\models\modeltexture.h" />
     <ClInclude Include="src\graphics\models\rawmodel.h" />
     <ClInclude Include="src\graphics\models\texturedmodel.h" />
@@ -194,6 +193,7 @@
   <ItemGroup>
     <Image Include="res\textures\basic.png" />
     <Image Include="res\textures\basic2.png" />
+    <Image Include="res\textures\white.PNG" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

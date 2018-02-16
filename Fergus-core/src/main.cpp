@@ -14,6 +14,8 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "loaders\objloader.h"
 
+#include "graphics\entities\light.h"
+
 
 //TODO: load shader in Mesh::draw
 
@@ -104,21 +106,24 @@ int main()
 
 	};
 
-	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/dragon.obj");
-
-	OBJLoader::TestLoadObj("res/models/person.obj");
+	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/bunny.obj");
 
 	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
-	RawModel model(vertices, 12 * 6, indices, 12 * 3, textureCoords, 23 * 2);
 	ModelTexture modelTexture("res/textures/basic2.png");
-	ModelTexture dragonTexture("res/textures/red.jpg");
+	ModelTexture dragonTexture("res/textures/white.png");
 
-	TexturedModel texturedModel(&model, &modelTexture);
 	TexturedModel dragonTexturedModel(&dragonModel, &dragonTexture);
 
-	Entity entity(&texturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
-	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -2), glm::vec3(0, 0, 0), 1);
+	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), 1);
 	
+	Light light(glm::vec3(0, 3, 15), glm::vec3(0.4, 0, 0.7));
+
+	shader.enable();
+	shader.setUniform3f("lightColor", light.getColor());
+	shader.setUniform3f("lightPosition", light.getPosition());
+	shader.setUniform1f("shineDamper", dragonTexture.shineDamper);
+	shader.setUniform1f("reflectivity", dragonTexture.reflectivity);
+
 
 	while (!window.closed())
 	{
@@ -134,10 +139,7 @@ int main()
 		glm::mat4 view = camera.getViewMatrix();
 		shader.setUniformMat4("pr_matrix", projection);
 		shader.setUniformMat4("vw_matrix", view);
-
-		// render the loaded model
 		
-		shader.setUniformMat4("ml_matrix", entity.getTransform());
 		
 
 		dragon.rotate(glm::vec3(0.0f, 0.013f, 0.0f));

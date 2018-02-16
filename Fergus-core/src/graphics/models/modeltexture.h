@@ -13,6 +13,9 @@ public:
 
 	GLuint getDiffuseID();
 
+	float shineDamper = 10;
+	float reflectivity = 1;
+
 private:
 	GLuint diffuseID;
 	int width;
