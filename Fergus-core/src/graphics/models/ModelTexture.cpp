@@ -14,7 +14,12 @@ GLuint ModelTexture::getDiffuseID()
 
 GLuint ModelTexture::generateTexture(char* path)
 {
-	data = stbi_load(path, &width, &height, &nrChannels, 0);
+	int width;
+	int height;
+	int nrChannels;
+	unsigned char *data;
+
+	data = stbi_load(path, &width, &height, &nrChannels, 3);
 	GLuint id = 0;
 	if (!data)
 	{

@@ -24,7 +24,7 @@ int main()
 	Window window(960.0f, 540.0, "Lex ist lustig!");
 
 
-	Camera camera(glm::vec3(-5, 3, 5), window);
+	Camera camera(glm::vec3(0, 0, 0), window);
 
 	Renderer3D renderer;
 
@@ -106,23 +106,22 @@ int main()
 
 	};
 
-	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/bunny.obj");
+	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/cube.obj");
 
-	Shader shader("src/shaders/3d/basic.vert", "src/shaders/3d/basic.frag");
-	ModelTexture modelTexture("res/textures/basic2.png");
-	ModelTexture dragonTexture("res/textures/white.png");
+	Shader shader("src/shaders/3d/onlytexture.vert", "src/shaders/3d/onlytexture.frag");
+	ModelTexture dragonTexture("res/textures/default2.png");
 
 	TexturedModel dragonTexturedModel(&dragonModel, &dragonTexture);
 
-	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -10), glm::vec3(0, 0, 0), 1);
+	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -4), glm::vec3(0, 0, 0), 1);
 	
-	Light light(glm::vec3(0, 3, 15), glm::vec3(0.4, 0, 0.7));
+	Light light(glm::vec3(0, 3, 15), glm::vec3(0.5, 0.5, 0.5));
 
 	shader.enable();
-	shader.setUniform3f("lightColor", light.getColor());
-	shader.setUniform3f("lightPosition", light.getPosition());
-	shader.setUniform1f("shineDamper", dragonTexture.shineDamper);
-	shader.setUniform1f("reflectivity", dragonTexture.reflectivity);
+	//shader.setUniform3f("lightColor", light.getColor());
+	//shader.setUniform3f("lightPosition", light.getPosition());
+	//shader.setUniform1f("shineDamper", dragonTexture.shineDamper);
+	//shader.setUniform1f("reflectivity", dragonTexture.reflectivity);
 
 
 	while (!window.closed())
@@ -142,7 +141,7 @@ int main()
 		
 		
 
-		dragon.rotate(glm::vec3(0.0f, 0.013f, 0.0f));
+		dragon.rotate(glm::vec3(0.01f, 0.013f, 0.01f));
 
 		//renderer.render(&dragonModel);
 		renderer.render(&dragon, &shader, &camera);

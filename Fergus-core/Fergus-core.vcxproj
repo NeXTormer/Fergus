@@ -144,6 +144,7 @@
     <ClCompile Include="src\graphics\2d\simplerenderer2d.cpp" />
     <ClCompile Include="src\graphics\shader.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\loaders\tiny_obj_loader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\maths\mat4.cpp" />
     <ClCompile Include="src\maths\vec2.cpp" />
@@ -191,6 +192,8 @@
     <None Include="src\shaders\2d\basic.vert" />
     <None Include="src\shaders\3d\basic.frag" />
     <None Include="src\shaders\3d\basic.vert" />
+    <None Include="src\shaders\3d\onlytexture.frag" />
+    <None Include="src\shaders\3d\onlytexture.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\basic.png" />

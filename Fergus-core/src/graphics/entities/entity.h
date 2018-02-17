@@ -4,8 +4,6 @@
 #include "../models/texturedmodel.h"
 #include "transformable.h"
 
-//TODO: split into renderable and transformable
-
 class Entity : public Transformable
 {
 public:

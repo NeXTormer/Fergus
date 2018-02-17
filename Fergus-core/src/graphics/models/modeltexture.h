@@ -18,10 +18,6 @@ public:
 
 private:
 	GLuint diffuseID;
-	int width;
-	int height;
-	int nrChannels;
-	unsigned char *data;
 
 	GLuint generateTexture(char* path);
 };

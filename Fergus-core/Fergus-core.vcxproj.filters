@@ -75,6 +75,9 @@
     <ClCompile Include="src\graphics\materials\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\loaders\tiny_obj_loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\maths\mat4.h">
@@ -179,6 +182,8 @@
     <None Include="src\shaders\2d\basic.vert" />
     <None Include="src\shaders\3d\basic.vert" />
     <None Include="src\shaders\3d\basic.frag" />
+    <None Include="src\shaders\3d\onlytexture.frag" />
+    <None Include="src\shaders\3d\onlytexture.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\basic.png">

@@ -13,7 +13,6 @@
 #include "../utils/fileutils.h"
 #include "../utils/timer.h"
 
-#define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
 //using https://github.com/syoyo/tinyobjloader
@@ -50,6 +49,12 @@ public:
 			indices_t.push_back((GLushort)shapes[0].mesh.indices[i].vertex_index);
 		}
 
+		for (int i = 0; i < attrib.texcoords.size(); i++)
+		{
+			std::cout << attrib.texcoords[i] << std::endl;
+		}
+
 		return RawModel(&attrib.vertices[0], attrib.vertices.size(), &attrib.normals[0], attrib.normals.size(), &indices_t[0], indices_t.size(), &attrib.texcoords[0], attrib.texcoords.size());
 	}	
+
 };
