@@ -56,7 +56,6 @@ Window::Window(int width, int height, char *title)
 	{
 		m_mouseButtons[i] = false;
 	}
-
 	glClearColor(0.48f, 0.48f, 0.54f, 1.0f);
 
 	std::cout << glGetString(GL_VERSION) << std::endl;

@@ -4,8 +4,8 @@ Renderer3D::Renderer3D()
 {
 	projectionmatrix = glm::perspective(90.0f, 16.0f / 9.0f, 0.1f, 1000.0f);
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_BACK);
 }
 
 void Renderer3D::prepare()

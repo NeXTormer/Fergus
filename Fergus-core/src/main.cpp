@@ -103,18 +103,27 @@ int main()
 		19,17,18,
 		20,21,23,
 		23,21,22
-
 	};
 
-	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/cube.obj");
+	GLfloat normals = 1;
+
+	RawModel model(&vertices[0], 72, &normals, 1, &indices[0], 36, &textureCoords[0], 48);
+	
+
+	RawModel dragonModel = OBJLoader::TestLoadObj("res/models/bike.obj");
 
 	Shader shader("src/shaders/3d/onlytexture.vert", "src/shaders/3d/onlytexture.frag");
 	ModelTexture dragonTexture("res/textures/default2.png");
 
+
+	TexturedModel tm(&model, &dragonTexture);
+
 	TexturedModel dragonTexturedModel(&dragonModel, &dragonTexture);
 
 	Entity dragon(&dragonTexturedModel, glm::vec3(0, 0, -4), glm::vec3(0, 0, 0), 1);
-	
+	Entity entity(&tm, glm::vec3(2, 0, -4), glm::vec3(0, 0, 0), 1);
+
+
 	Light light(glm::vec3(0, 3, 15), glm::vec3(0.5, 0.5, 0.5));
 
 	shader.enable();
@@ -123,6 +132,7 @@ int main()
 	//shader.setUniform1f("shineDamper", dragonTexture.shineDamper);
 	//shader.setUniform1f("reflectivity", dragonTexture.reflectivity);
 
+	float speed = 4;
 
 	while (!window.closed())
 	{
@@ -140,10 +150,10 @@ int main()
 		shader.setUniformMat4("vw_matrix", view);
 		
 		
+		entity.rotate(glm::vec3(0.01f * speed, 0.013f * speed, 0.01f * speed));
+		dragon.rotate(glm::vec3(0.01f * speed, 0.013f * speed, 0.01f * speed));
 
-		dragon.rotate(glm::vec3(0.01f, 0.013f, 0.01f));
-
-		//renderer.render(&dragonModel);
+		renderer.render(&entity, &shader, &camera);
 		renderer.render(&dragon, &shader, &camera);
 
 		window.update();
